@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Account 360 Dashboard">
+
+        <template if:true={account}>
+            <p><strong>Name:</strong> {account.Name}</p>
+            <p><strong>Industry:</strong> {account.Industry}</p>
+            <p><strong>Phone:</strong> {account.Phone}</p>
+        </template>
+
+        <hr/>
+
+        <p><strong>Total Contacts:</strong> {contacts.length}</p>
+        <p><strong>Total Cases:</strong> {caseCount}</p>
+
+        <hr/>
+
+        <p><strong>SLA Timer (Seconds):</strong> {seconds}</p>
+
+    </lightning-card>
+    
+</template>

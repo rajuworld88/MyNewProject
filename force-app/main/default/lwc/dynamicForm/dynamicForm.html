@@ -1,0 +1,18 @@
+<template>
+    
+
+    <lightning-card title="Dynamic Form">
+        <lightning-combobox label="Dynamic Form" value={selectedFormType} options={data} onchange={handlechange}>
+        <template if:true={shownamefield}>
+            <lightning-input  label="name">
+
+            </lightning-input>
+        </template>
+         <template if:true={showemailfield}>
+            <lightning-input label="Email"></lightning-input>
+         </template>
+    
+        </lightning-combobox>
+
+    </lightning-card>
+</template>

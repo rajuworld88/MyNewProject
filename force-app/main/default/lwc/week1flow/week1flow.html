@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Practice flows">
+
+        <lightning-button label="searchdata" onclick={handlechange}></lightning-button>
+ <template if:true={accounts}>
+<template for:each={accounts} for:item="acc">
+    <p key ={acc.Id}> {acc.Name}</p>
+</template>
+
+</template>
+    </lightning-card>
+    
+    
+
+    
+</template>

@@ -1,0 +1,20 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+    </template>
+
+    <lightning-card title="Related Opportunities" icon-name="standard:opportunity">
+        <lightning-datatable
+            key-field="Id"
+            data={opportunities}
+            columns={columns}
+            draft-values={draftValues}
+            onsave={handleSave}
+            hide-checkbox-column>
+        </lightning-datatable>
+    </lightning-card>
+
+
+
+  
+</template>

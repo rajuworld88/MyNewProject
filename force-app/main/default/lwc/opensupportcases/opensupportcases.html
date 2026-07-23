@@ -1,0 +1,16 @@
+<template>
+    
+    <lightning-card title="Open Support Cases">
+        <template if:true={cases}>
+            <lightning-datatable
+                data={cases}
+                columns={columns}
+                key-field="Id"
+                onrowaction={handleRowAction}
+            ></lightning-datatable>
+        </template>
+        <template if:true={error}>
+            <p>{error}</p>
+        </template>
+    </lightning-card>
+</template>

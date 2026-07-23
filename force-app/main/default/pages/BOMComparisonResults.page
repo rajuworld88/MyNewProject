@@ -1,0 +1,120 @@
+<apex:page standardController="Unified_List__c" extensions="BoMAndDistiComparisonController">
+    <apex:form >
+        <apex:commandButton value="Compare and Load Results" action="{!compareAndFetchRecords}" rerender="resultsBlock" />
+
+        <apex:pageBlock title="BoM and Distribution Comparison Results">
+            <apex:outputPanel id="resultsBlock">
+                <div class="comparison-container">
+                    <div class="section">
+                        <h3 class="section-title">BoM</h3>
+                        <table class="section-table">
+                            <thead>
+                                <tr>
+                                    <th class="table-header">Part Number</th>
+                                    <th class="table-header">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <apex:repeat value="{!bomList}" var="bomRecord">
+                                    <tr>
+                                        <td class="table-cell">{!bomRecord.Part_Number__c}</td>
+                                        <td class="table-cell">{!bomRecord.Quantity__c}</td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h3 class="section-title">Disti</h3>
+                        <table class="section-table">
+                            <thead>
+                                <tr>
+                                    <th class="table-header">Part Number</th>
+                                    <th class="table-header">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <apex:repeat value="{!distiList}" var="distiRecord">
+                                    <tr>
+                                        <td class="table-cell">{!distiRecord.Part_Number__c}</td>
+                                        <td class="table-cell">{!distiRecord.Quantity__c}</td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h3 class="section-title">Unified List</h3>
+                        <table class="section-table">
+                            <thead>
+                                <tr>
+                                    <th class="table-header">BoM PN</th>
+                                    <th class="table-header">BoM Qty</th>
+                                    <th class="table-header">Disti PN</th>
+                                    <th class="table-header">Disti Qty</th>
+                                    <th class="table-header">Error Flag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <apex:repeat value="{!unifiedListRecords}" var="unifiedRecord">
+                                    <tr>
+                                        <td class="table-cell">{!unifiedRecord.BoM_Part_Number__c}</td>
+                                        <td class="table-cell">{!unifiedRecord.BoM_Quantity__c}</td>
+                                        <td class="table-cell">{!unifiedRecord.Disti_Part_Number__c}</td>
+                                        <td class="table-cell">{!unifiedRecord.Disti_Quantity__c}</td>
+                                        <td class="table-cell">{!IF(unifiedRecord.Error_Flag__c, 'X', '')}</td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+
+    <style>
+        .comparison-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+            gap: 20px; /* Spacing between columns */
+            margin-bottom: 20px;
+        }
+
+        .section {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-header {
+            background-color: #f2f2f2;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .table-cell {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .table-cell:last-child {
+            text-align: center; /* Center the Error Flag */
+        }
+    </style>
+</apex:page>

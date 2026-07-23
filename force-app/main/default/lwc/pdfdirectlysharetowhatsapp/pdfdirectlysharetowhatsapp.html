@@ -1,0 +1,14 @@
+<template>
+  <lightning-card title="PDF Form Downloader">
+      <div class="slds-m-around_medium">
+          <lightning-input label="Number of Kgs per Bag" data-field="num_of_kgs_per_bag" value={num_of_kgs_per_bag} onchange={handleInputChange}></lightning-input>
+          <lightning-input label="Number of Bags" data-field="num_of_bags" value={num_of_bags} onchange={handleInputChange}></lightning-input>
+          <lightning-input label="Cost Per Kg" data-field="cost_per_kg" value={cost_per_kg} onchange={handleInputChange}></lightning-input>
+          <lightning-input label="Email" data-field="email" value={email} onchange={handleInputChange}></lightning-input>
+          <div class="slds-m-top_medium">
+              <lightning-button label="Download PDF" onclick={downloadPdf}></lightning-button>
+              <lightning-button label="Share to WhatsApp" onclick={shareToWhatsApp} class="slds-m-left_small"></lightning-button>
+          </div>
+      </div>
+  </lightning-card>
+</template>

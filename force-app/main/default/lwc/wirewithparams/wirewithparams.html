@@ -1,0 +1,10 @@
+<template>
+    <lightning-combobox label="selet required" value={dataa} options={selecteddata} onchange={handlecombo}>
+
+    </lightning-combobox>
+
+    <template for:each={selectedrating} for:item="accdata">
+     <p key={accdata.Id}> name :   {accdata.Name}</p>
+    </template>
+    
+</template>

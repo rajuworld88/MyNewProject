@@ -1,0 +1,25 @@
+<template>
+
+    <!-- <lightning-card title="Pass the data LWc to Flow">
+        <lightning-input label="Subject" onchange={Handlesuject}> </lightning-input>
+       
+        <lightning-input label="Descreption" onchange={handleDescription}> </lightning-input>
+
+        <lightning-button label="Submit" onclick={handlesubmit}></lightning-button>
+
+    </lightning-card> -->
+
+ 
+        <lightning-card hide-header="true">
+            <div class="slds-p-horizontal_small">
+                <lightning-input type="text" label="Subject" onchange={handleSubjectChange}></lightning-input>
+                <lightning-input type="text" label="Description" onchange={handleDescChange}></lightning-input>
+            </div>
+            <div class="slds-float_right slds-p-top_large slds-p-right_small">
+                <lightning-button variant="brand" label="Finish" onclick={handleCreate}></lightning-button>
+            </div>
+        </lightning-card>
+  
+    
+    
+</template>

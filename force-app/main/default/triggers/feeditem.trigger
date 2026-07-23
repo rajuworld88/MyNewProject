@@ -1,0 +1,1 @@
+trigger feeditem on FeedItem (before insert) {}

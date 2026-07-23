@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <!-- Attribute to store record data -->
+    <aura:attribute name="record" type="Map"/>
+    
+    <!-- Use force:recordData for loading record details -->
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      targetFields="{!v.record}"
+                      mode="VIEW"/>
+    
+    <!-- Button to share on WhatsApp -->
+    <lightning:button label="Share to WhatsApp"
+                      variant="brand"
+                      onclick="{!c.shareToWhatsApp}"
+                      class="slds-m-top_medium"/>
+</aura:component>

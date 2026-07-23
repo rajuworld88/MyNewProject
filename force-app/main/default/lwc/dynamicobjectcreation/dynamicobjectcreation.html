@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Record Creator" icon-name="custom:custom63">
+        
+        
+            <lightning-combobox
+                label="Select Object"
+                placeholder="Choose an object"
+                options={objectOptions}
+                value={selectedObject}
+                onchange={handleObjectChange}>
+            </lightning-combobox>
+
+            <template if:true={selectedObject}>
+                <lightning-input
+                    label="Name"
+                    name="Name"
+                    required
+                    value={formData.Name}
+                    onchange={handleFieldChange}>
+                </lightning-input>
+                <template if:true={isContact}>
+                    <lightning-input
+                        label="Email"
+                        name="Email"
+                        type="email"
+                        value={formData.Email}
+                        onchange={handleFieldChange}>
+                    </lightning-input>
+                </template>
+                <template if:true={isOpportunity}>
+                    <lightning-input
+                        label="Close Date"
+                        name="CloseDate"
+                        type="date"
+                        value={formData.CloseDate}
+                        onchange={handleFieldChange}>
+                    </lightning-input>
+                    <lightning-input
+                        label="Stage Name"
+                        name="StageName"
+                        value={formData.StageName}
+                        onchange={handleFieldChange}>
+                    </lightning-input>
+                </template>
+            </template>
+
+       
+            <lightning-button
+                label="Create Record"
+                variant="brand"
+                onclick={handleCreateRecord}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <div slot="title" class="sira-title">
+            <img src={isImageUrl} alt="S Icon" class="s-icon" />
+            <h1 class="custom-title">Sira</h1>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button
+                label={buttonLabel}
+                onclick={handleClick}
+                icon-name="utility:open"
+                icon-position="right"
+                variant="brand"
+               >
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>
