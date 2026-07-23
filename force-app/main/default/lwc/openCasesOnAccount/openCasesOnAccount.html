@@ -1,0 +1,35 @@
+<template>
+    
+    <lightning-card title="Open Cases">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-button
+                label="Show Open Cases"
+                variant="brand"
+                onclick={loadCases}>
+            </lightning-button>
+
+        </div>
+
+        <template if:true={cases}>
+
+            <lightning-datatable
+                key-field="Id"
+                data={cases}
+                columns={columns}>
+            </lightning-datatable>
+
+        </template>
+
+        <template if:true={error}>
+
+            <p class="slds-text-color_error slds-p-around_medium">
+                {error}
+            </p>
+
+        </template>
+
+    </lightning-card>
+
+</template>
