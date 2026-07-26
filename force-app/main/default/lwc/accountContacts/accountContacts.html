@@ -1,0 +1,17 @@
+<template>
+    <lightning-button
+    label="Show Contacts"
+    onclick={handleShowContacts}>
+</lightning-button>
+<template if:true={showTable}>
+<lightning-datatable
+    key-field="Id"
+    data={contacts}
+    columns={columns}>
+</lightning-datatable>
+</template>
+<template if:true={noContacts}>
+    No Contacts found for this Account.
+</template>
+    
+</template>
