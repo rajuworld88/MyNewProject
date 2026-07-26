@@ -1,17 +1,35 @@
 <template>
-    <lightning-button
-    label="Show Contacts"
-    onclick={handleShowContacts}>
-</lightning-button>
-<template if:true={showTable}>
-<lightning-datatable
-    key-field="Id"
-    data={contacts}
-    columns={columns}>
-</lightning-datatable>
-</template>
-<template if:true={noContacts}>
-    No Contacts found for this Account.
-</template>
-    
+    <lightning-card title="Accounts">
+
+        <lightning-datatable
+            key-field="Id"
+            data={accounts}
+            columns={columns}
+            onrowaction={handleRowAction}
+            hide-checkbox-column>
+        </lightning-datatable>
+
+    </lightning-card>
+
+    <!-- Contacts section -->
+    <template if:true={showContacts}>
+
+        <lightning-card title="Related Contacts">
+
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={contactColumns}
+                hide-checkbox-column>
+            </lightning-datatable>
+
+        </lightning-card>
+
+    </template>
+
+    <template if:true={noContacts}>
+        <p class="slds-p-around_medium">
+            No related Contacts found for this Account.
+        </p>
+    </template>
 </template>
