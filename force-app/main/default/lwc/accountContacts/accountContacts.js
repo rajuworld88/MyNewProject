@@ -18,7 +18,13 @@ export default class AccountContacts extends LightningElement {
         getContacts({accountId:this.recordId})
         .then(result=>{
             this.contacts = result;
-            this.showTable = true;
+            if(this.contacts.length > 0){
+                this.showTable = true;
+                this.noContacts = false;
+            }else{
+                this.showTable = false;
+                this.noContacts = true;
+            }
         })
         .catch(error=>{
             console.error('Error fetching contacts:', error);
